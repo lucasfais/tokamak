@@ -5,7 +5,7 @@ module Tokamak
     TINY  = 2
     SUFIX = 'fais'
 
-    STRING = [MAJOR, MINOR, TINY].join('.') + "-#{SUFIX}"
+    STRING = [MAJOR, MINOR, TINY, SUFIX].join('.')
 
     def self.to_s
       STRING

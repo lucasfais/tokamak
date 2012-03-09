@@ -41,13 +41,13 @@ module Tokamak
 
       def link(relationship, uri, options = {})
         # Start link array
-        @current["link"] = [] unless @current["link"]
+        @current["links"] = [] unless @current["links"]
         stringify_keys(options) 
 
         options["rel"]  = relationship.to_s
         options["href"] = uri
         options["type"] ||= "application/json"
-        insert_value("link", nil, options)
+        insert_value("links", nil, options)
       end
 
       def insert_value(name, prefix, *args, &block)

@@ -202,8 +202,8 @@ class Tokamak::Builder::JsonTest < Test::Unit::TestCase
     assert_equal "an_id", hash.id
     assert_equal "bar"  , hash.members.first.id
     assert hash.members.kind_of?(Array)
-    assert hash.link.kind_of?(Array)
-    assert hash.members.first.link.kind_of?(Array)
+    assert hash.links.kind_of?(Array)
+    assert hash.members.first.links.kind_of?(Array)
   end
 
   def test_build_full_collection
@@ -252,15 +252,15 @@ class Tokamak::Builder::JsonTest < Test::Unit::TestCase
     assert_equal "foobar@example.com"     , hash.author.last.email
     assert_equal "http://example.com/json", hash.id
     
-    assert_equal "http://a.link.com/next" , hash.link.first.href
-    assert_equal "next"                   , hash.link.first.rel
-    assert_equal "application/json"       , hash.link.last.type
+    assert_equal "http://a.link.com/next" , hash.links.first.href
+    assert_equal "next"                   , hash.links.first.rel
+    assert_equal "application/json"       , hash.links.last.type
     
     assert_equal "uri:1"                      , hash.articles.first.id
     assert_equal "a great article"            , hash.articles.first.title
-    assert_equal "http://example.com/image/1" , hash.articles.last.link.first.href
-    assert_equal "image"                      , hash.articles.last.link.first.rel
-    assert_equal "application/json"           , hash.articles.last.link.last.type
+    assert_equal "http://example.com/image/1" , hash.articles.last.links.first.href
+    assert_equal "image"                      , hash.articles.last.links.first.rel
+    assert_equal "application/json"           , hash.articles.last.links.last.type
   end
 
   def test_build_full_member
@@ -288,13 +288,13 @@ class Tokamak::Builder::JsonTest < Test::Unit::TestCase
         
     assert_equal "uri:1"                      , hash.article.id
     assert_equal "a great article"            , hash.article.title
-    assert_equal "http://example.com/image/1" , hash.article.link.first.href
-    assert_equal "image"                      , hash.article.link.first.rel
-    assert_equal "application/json"           , hash.article.link.first.type
+    assert_equal "http://example.com/image/1" , hash.article.links.first.href
+    assert_equal "image"                      , hash.article.links.first.rel
+    assert_equal "application/json"           , hash.article.links.first.type
     
-    assert_equal "http://example.com/image/1" , hash.article.domain.link.first.href
-    assert_equal "image"                      , hash.article.domain.link.first.rel
-    assert_equal "application/json"           , hash.article.domain.link.first.type
+    assert_equal "http://example.com/image/1" , hash.article.domain.links.first.href
+    assert_equal "image"                      , hash.article.domain.links.first.rel
+    assert_equal "application/json"           , hash.article.domain.links.first.type
     assert_equal "http://a.namespace.com"     , hash.article.domain.xmlns
   end
 end

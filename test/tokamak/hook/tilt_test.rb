@@ -38,7 +38,6 @@ class Tokamak::Hook::TiltTest < Test::Unit::TestCase
 
     assert_equal "http://a.link.com/next" , hash.links.first.href
     assert_equal "next"                   , hash.links.first.rel
-    assert_equal "application/json"       , hash.links.last.type
 
     assert_equal "uri:1"                      , hash.articles.first.id
     assert_equal "a great article"            , hash.articles.first.title

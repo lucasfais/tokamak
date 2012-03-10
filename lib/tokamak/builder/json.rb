@@ -46,7 +46,6 @@ module Tokamak
 
         options["rel"]  = relationship.to_s
         options["href"] = uri
-        options["type"] ||= "application/json"
         insert_value("links", nil, options)
       end
 
